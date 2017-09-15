@@ -42,8 +42,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dominio\Acciones\MetodosGenerales.cs" />
     <Compile Include="Dominio\Especificaciones\Juego.cs" />
     <Compile Include="Dominio\Especificaciones\Jugador.cs" />
+    <Compile Include="Dominio\Validaciones\Ganador.cs" />
+    <Compile Include="Dominio\Validaciones\Menu.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -51,10 +54,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Dominio\Acciones\" />
     <Folder Include="Dominio\Enumerados\" />
     <Folder Include="Dominio\TipoDeDato\" />
-    <Folder Include="Dominio\Validaciones\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

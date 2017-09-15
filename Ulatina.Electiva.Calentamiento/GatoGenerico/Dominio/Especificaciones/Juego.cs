@@ -8,5 +8,16 @@ namespace GatoGenerico.Dominio.Especificaciones
 {
     class Juego
     {
+        int tamanoTablero;
+        
+        public void setTamanoTablero(int pTamano)
+        {
+            tamanoTablero = pTamano;
+        }
+
+        public int getTamanoTablero()
+        {
+            return tamanoTablero;
+        }
     }
 }
