@@ -35,17 +35,19 @@ namespace GatoGenerico.Dominio.Acciones
                 Console.WriteLine("1. jugador 1");
                 Console.WriteLine("2. jugador 2");
                 Console.WriteLine("------------------------------------");
-                jugador1.SetJugada(Convert.ToInt32(Console.ReadLine()));
+                int o = Convert.ToInt32(Console.ReadLine());
+                if (o.Equals(1))
+                {
+                    jugador1.SetJugada(1);
+                    jugador2.SetJugada(2);
+                }
+                else
+                {
+                    jugador2.SetJugada(1);
+                    jugador1.SetJugada(2);
+                }
                 Console.Clear();
             } while (!Menu.ValidarPrimeroEnJugar(jugador1.GetJugada()));
-            if (jugador1.GetJugada().Equals(1))
-            {
-                jugador2.SetJugada(2);
-            }
-            else
-            {
-                jugador2.SetJugada(1);
-            }
             pJuego.SetTurnoJugar(1);
             do
             {
@@ -150,10 +152,20 @@ namespace GatoGenerico.Dominio.Acciones
         {
             if(Tablero.ValidarPosicionLlenar(tablero, pJuego))
             {
-                if (pJuego.GetTurnoJugar().Equals(pJugador1.GetJugada()))
+                if (pJuego.GetTurnoJugar() == 1 && pJugador1.GetJugada() == 1)
                 {
                     tablero[pJuego.GetPosicionLlenar() - 1] = pJugador1.GetFichaJugador();
                     pJuego.SetTurnoJugar(pJuego.GetTurnoJugar() + 1);
+                }
+                else if(pJuego.GetTurnoJugar() == 1 && pJugador2.GetJugada() == 1)
+                {
+                    tablero[pJuego.GetPosicionLlenar() - 1] = pJugador2.GetFichaJugador();
+                    pJuego.SetTurnoJugar(pJuego.GetTurnoJugar() + 1);
+                }
+                else if(pJuego.GetTurnoJugar() == 2 && pJugador1.GetJugada() == 2)
+                {
+                    tablero[pJuego.GetPosicionLlenar() - 1] = pJugador1.GetFichaJugador();
+                    pJuego.SetTurnoJugar(pJuego.GetTurnoJugar() - 1);
                 }
                 else
                 {

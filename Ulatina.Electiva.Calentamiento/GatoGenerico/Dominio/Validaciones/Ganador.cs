@@ -106,9 +106,10 @@ namespace GatoGenerico.Dominio.Validaciones
             return false;
         }
 
-        private static Boolean ValidarVerticales(String[] tablero, Jugador pJugador, Juego pJuego)
+        /*private static Boolean ValidarVerticales(String[] tablero, Jugador pJugador, Juego pJuego)
         {
             
         }
+        */
     }
 }
