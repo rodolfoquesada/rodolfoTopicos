@@ -16,7 +16,6 @@ namespace GatoGenerico
             Jugador jugador2 = new Jugador();
             Juego juego1 = new Juego();
             int ficha = 0;
-            int tamano = 0;
             int primeroJugar = 0;
             String[] tablero = new String[0];
 

@@ -71,7 +71,7 @@ namespace GatoGenerico.Dominio.Acciones
         public static void DesplegarTablero(String[] tablero, int pTamano)
         {
             var nuevoTab = new string[tablero.Length];
-            tablero.CopyTo(nuevoTab, 0);
+            /*tablero.CopyTo(nuevoTab, 0);
             for (int i = 0; i <= (pTamano*pTamano); i++)
             {
                 if (nuevoTab[i] == null)
@@ -80,6 +80,7 @@ namespace GatoGenerico.Dominio.Acciones
                     nuevoTab[i] = Convert.ToString(x);
                 }
             }
+            */
             if (pTamano.Equals(1))
             {
                 Console.WriteLine("\n     " + nuevoTab[0] + " | " + nuevoTab[1] + "  | " + nuevoTab[2]);
