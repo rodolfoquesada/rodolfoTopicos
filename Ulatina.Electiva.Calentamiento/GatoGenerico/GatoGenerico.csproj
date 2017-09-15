@@ -47,6 +47,7 @@
     <Compile Include="Dominio\Especificaciones\Jugador.cs" />
     <Compile Include="Dominio\Validaciones\Ganador.cs" />
     <Compile Include="Dominio\Validaciones\Menu.cs" />
+    <Compile Include="Dominio\Validaciones\Tablero.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

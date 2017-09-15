@@ -10,24 +10,43 @@ namespace GatoGenerico.Dominio.Especificaciones
     {
         String NombreJugador;
         String FichaJugador;
+        int Jugada;
+        int Ficha;
 
-        public void setNombreJugador(string pNombre)
+        public void SetNombreJugador(string pNombre)
         {
-            NombreJugador = pNombre;
+            this.NombreJugador = pNombre;
         }
-        public string getNombreJugador()
+        public string GetNombreJugador()
         {
-            return NombreJugador;
-        }
-
-        public void setFichaJugador(String pFichaJugador)
-        {
-            FichaJugador = pFichaJugador; 
-        }
-        public string getFichaJugador()
-        {
-            return FichaJugador;
+            return this.NombreJugador;
         }
 
+        public void SetFichaJugador(String pFichaJugador)
+        {
+            this.FichaJugador = pFichaJugador; 
+        }
+        public string GetFichaJugador()
+        {
+            return this.FichaJugador;
+        }
+
+        public void SetJugada(int pJugada)
+        {
+            this.Jugada = pJugada; 
+        }
+        public int GetJugada()
+        {
+            return this.Jugada;
+        }
+
+        public void SetFicha(int pFicha)
+        {
+            this.Ficha = pFicha;
+        }
+        public int GetFicha()
+        {
+            return this.Ficha;
+        }
     }
 }
