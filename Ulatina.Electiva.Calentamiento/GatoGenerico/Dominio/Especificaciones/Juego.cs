@@ -12,6 +12,7 @@ namespace GatoGenerico.Dominio.Especificaciones
         int posicionLlenar;
         int turnoJugar;
         int opcionJuego;
+        int ganadorJuego;
         
         public void SetTamanoTablero(int pTamano)
         {
@@ -47,6 +48,15 @@ namespace GatoGenerico.Dominio.Especificaciones
         public int GetOpcionJuego()
         {
             return this.opcionJuego;
+        }
+
+        public void SetGanadorJuego(int pGanadorJuego)
+        {
+            this.ganadorJuego = pGanadorJuego;
+        }
+        public int GetGanadorJuego()
+        {
+            return this.ganadorJuego;
         }
     }
 }

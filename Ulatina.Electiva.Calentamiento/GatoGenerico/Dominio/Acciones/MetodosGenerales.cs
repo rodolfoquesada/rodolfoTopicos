@@ -59,7 +59,7 @@ namespace GatoGenerico.Dominio.Acciones
             } while (!Menu.ValidarOpcionTamano(pJuego.GetTamanoTablero()));
         }
 
-         public static String[] CrearTablero(int pTamano, String[] tablero)
+        public static String[] CrearTablero(int pTamano, String[] tablero)
         {
             if (pTamano.Equals(1))
             {
@@ -87,22 +87,22 @@ namespace GatoGenerico.Dominio.Acciones
             }else if (pTamano.Equals(2))
             {
                 Console.WriteLine("\n     " + tablero[0] + " | " + tablero[1] + "  | " + tablero[2] + "  | " + tablero[3]);
-                Console.WriteLine("\n   ___  ___  ___");
+                Console.WriteLine("\n   ___  ___  ___  ___");
                 Console.WriteLine("\n     " + tablero[4] + " | " + tablero[5] + "  | " + tablero[6] + "  | " + tablero[7]);
-                Console.WriteLine("\n   ___  ___  ___");
+                Console.WriteLine("\n   ___  ___  ___  ___");
                 Console.WriteLine("\n     " + tablero[8] + " | " + tablero[9] + "  | " + tablero[10] + "  | " + tablero[11]);
-                Console.WriteLine("\n   ___  ___  ___");
+                Console.WriteLine("\n   ___  ___  ___  ___");
                 Console.WriteLine("\n     " + tablero[12] + " | " + tablero[13] + "  | " + tablero[14] + "  | " + tablero[15]);
             }else if (pTamano.Equals(3))
             {
                 Console.WriteLine("\n     " + tablero[0] + " | " + tablero[1] + "  | " + tablero[2] + "  | " + tablero[3] + "  | " + tablero[4]);
-                Console.WriteLine("\n   ___  ___  ___");
+                Console.WriteLine("\n   ___  ___  ___  ___  ___");
                 Console.WriteLine("\n     " + tablero[5] + " | " + tablero[6] + "  | " + tablero[7] + "  | " + tablero[8] + "  | " + tablero[9]);
-                Console.WriteLine("\n   ___  ___  ___");
+                Console.WriteLine("\n   ___  ___  ___  ___  ___");
                 Console.WriteLine("\n     " + tablero[10] + " | " + tablero[11] + "  | " + tablero[12] + "  | " + tablero[13] + "  | " + tablero[14]);
-                Console.WriteLine("\n   ___  ___  ___");
+                Console.WriteLine("\n   ___  ___  ___  ___  ___");
                 Console.WriteLine("\n     " + tablero[15] + " | " + tablero[16] + "  | " + tablero[17] + "  | " + tablero[18] + "  | " + tablero[19]);
-                Console.WriteLine("\n   ___  ___  ___");
+                Console.WriteLine("\n   ___  ___  ___  ___  ___");
                 Console.WriteLine("\n     " + tablero[20] + " | " + tablero[21] + "  | " + tablero[22] + "  | " + tablero[23] + "  | " + tablero[24]);
             }
             if (pJuego1.GetTurnoJugar().Equals(pJugador1.GetJugada()))
@@ -173,14 +173,43 @@ namespace GatoGenerico.Dominio.Acciones
                 if (!Tablero.ValidarTableroLleno(tablero))
                 {
                     DesplegarTablero(tablero, pJuego.GetTamanoTablero(), pJuego, pJugador1, pJugador2);
-                    if (!LlenarTablero(tablero, pJugador1, pJugador2, pJuego))
+                    if (Tablero.ValidarPosicionLlenar(tablero, pJuego))
+                    {
+                        LlenarTablero(tablero, pJugador1, pJugador2, pJuego);
+                        if(Ganador.ValidarGanador(tablero, pJugador1, pJuego) || Ganador.ValidarGanador(tablero, pJugador2, pJuego))
+                        {
+                            Console.Clear();
+                            if (pJuego.GetGanadorJuego().Equals(pJugador1.GetJugada()))
+                            {
+                                Console.WriteLine($"{pJugador1.GetNombreJugador()} Felicidades!!! HAS GANADO EL JUEGO... [PRESIONE ENTER PARA CONTINUAR]");
+                                Console.ReadLine();
+                            }
+                            else
+                            {
+                                Console.WriteLine($"{pJugador2.GetNombreJugador()} Felicidades!!! HAS GANADO EL JUEGO... [PRESIONE ENTER PARA CONTINUAR]");
+                                Console.ReadLine();
+                            }
+                            Console.Clear();
+                            DesplegarOpcionesJuego(pJuego);
+                            if (pJuego.GetOpcionJuego().Equals(1))
+                            {
+                                Tablero.LimpiarTablero(tablero);
+                            }
+                            else
+                            {
+                                salir = true;
+                            }
+                        }
+                        Console.Clear();
+                    }
+                    else
                     {
                         Console.Clear();
                         Console.WriteLine("Error! la posicion seleccionada no existe o ya se encuentra ocupada... " +
                             "Por favor seleccionar una posición valida [PRESIONE ENTER PARA CONTINUAR]");
                         Console.ReadLine();
+                        Console.Clear();
                     }
-                    Console.Clear();
                 }
                 else
                 {
