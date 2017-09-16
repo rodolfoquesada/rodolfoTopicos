@@ -11,7 +11,15 @@ namespace GatoGenerico.Dominio.Validaciones
     {
         public static Boolean ValidarGanador(String[] tablero, Jugador pJugador, Juego pJuego)
         {
-           if( ValidarHorizontales(tablero, pJugador, pJuego))
+            if (ValidarHorizontales(tablero, pJugador, pJuego))
+            {
+                return true;
+            }
+            else if (ValidarVerticales(tablero, pJugador, pJuego))
+            {
+                return true;
+            }
+            else if (ValidarDiagonales(tablero, pJugador, pJuego))
             {
                 return true;
             }
